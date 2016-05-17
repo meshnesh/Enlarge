@@ -1,56 +1,30 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Sample</title>
-
-    <script type="text/javascript">
-        function showImage(smSrc, lgSrc) {
-            document.getElementById('largeImg').src = smSrc;
-            showLargeImagePanel();
-            unselectAll();
-            setTimeout(function () {
-                document.getElementById('largeImg').src = lgSrc;
-            }, 1)
+    <title>image on mouse move
+    </title>
+    <script language="javascript">
+        function showPic(sUrl) {
+            var x, y;
+            x = event.clientX;
+            y = event.clientY;
+            document.getElementById("Layer1").style.left = x;
+            document.getElementById("Layer1").style.top = y;
+            document.getElementById("Layer1").innerHTML = "<img height=200 width=400 src=\"" + sUrl + "\">";
+            document.getElementById("Layer1").style.display = "block";
         }
 
-        function showLargeImagePanel() {
-            document.getElementById('largeImgPanel').style.display = 'block';
-        }
-
-        function unselectAll() {
-            if (document.selection)
-                document.selection.empty();
-            if (window.getSelection)
-                window.getSelection().removeAllRanges();
+        function hiddenPic() {
+            document.getElementById("Layer1").innerHTML = "";
+            document.getElementById("Layer1").style.display = "none";
         }
     </script>
-
-    <style type="text/css">
-        #largeImgPanel {
-            text-align: center;
-            display: none;
-            position: fixed;
-            z-index: 100;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(100, 100, 100, 0.5);
-        }
-    </style>
 </head>
 
 <body>
-    <p>Click on any image thumbnail to enlarge. Click again to hide:</p>
-
-    <img src="1_small.jpeg" style="cursor:pointer" onclick="showImage(this.src, '1_large.jpeg');" />
-    <img src="2_small.jpeg" style="cursor:pointer" onclick="showImage(this.src, '2_large.jpeg');" />
-    <img src="3_small.jpeg" style="cursor:pointer" onclick="showImage(this.src, '3_large.jpeg');" />
-
-    <div id="largeImgPanel" onclick="this.style.display='none'">
-        <img id="largeImg" style="height:100%; margin:0; padding:0;" />
-    </div>
+    <div id="Layer1" style="display:none;position:absolute;z-index:1;"></div>
+    <img src="img/BLACK-RED.jpg" onmouseout="hiddenPic();" onmousemove="showPic(this.src);" />
+    <p></p>
 </body>
 
 </html>
