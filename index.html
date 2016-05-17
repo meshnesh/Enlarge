@@ -1,30 +1,16 @@
 <html>
 
 <head>
-    <title>image on mouse move
-    </title>
-    <script language="javascript">
-        function showPic(sUrl) {
-            var x, y;
-            x = event.clientX;
-            y = event.clientY;
-            document.getElementById("Layer1").style.left = x;
-            document.getElementById("Layer1").style.top = y;
-            document.getElementById("Layer1").innerHTML = "<img height=200 width=400 src=\"" + sUrl + "\">";
-            document.getElementById("Layer1").style.display = "block";
-        }
-
-        function hiddenPic() {
-            document.getElementById("Layer1").innerHTML = "";
-            document.getElementById("Layer1").style.display = "none";
-        }
-    </script>
+    <title>image on mouse move</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
 </head>
 
 <body>
-    <div id="Layer1" style="display:none;position:absolute;z-index:1;"></div>
-    <img src="img/BLACK-RED.jpg" onmouseout="hiddenPic();" onmousemove="showPic(this.src);" />
-    <p></p>
+    <ul class="enlarge">
+        <li><img src="img/BLACK-RED.jpg" width="150px" height="100px" alt="Dechairs" /><span><img src="img/BLACK-RED.jpg" alt="Deckchairs" /><br />I love red</span></li>
+        <li><img src="img/horror_skulls.jpg" width="150px" height="100px" alt="Blackpool sunset" /><span><img src="img/horror_skulls-RED.jpg" alt="Blackpool sunset" /><br />I have skull in my headl</span></li>
+        <li><img src="img/Need-for-Speed-pc-lansare.jpg" width="150px" height="100px" alt="Blackpool pier" /><span><img src="img/Need-for-Speed-pc-lansare.jpg" alt="Blackpool pier" /><br />Lets go for a ride</span></li>
+    </ul>
 </body>
 
 </html>
